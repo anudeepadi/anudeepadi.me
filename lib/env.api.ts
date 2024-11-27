@@ -12,6 +12,8 @@ function checkValue<T>(
   return value;
 }
 
+// sample
+
 // Required Sanity Configuration
 export const projectId = checkValue(
   process.env.NEXT_PUBLIC_SANITY_PROJECT_ID,
