@@ -1,3 +1,4 @@
+// schemas/blockContent.ts
 import { defineArrayMember, defineType } from "sanity";
 
 export default defineType({
@@ -22,6 +23,20 @@ export default defineType({
           { title: "Emphasis", value: "em" },
           { title: "Code", value: "code" },
         ],
+        annotations: [
+          {
+            title: "URL",
+            name: "link",
+            type: "object",
+            fields: [
+              {
+                title: "URL",
+                name: "href",
+                type: "url",
+              },
+            ],
+          },
+        ],
       },
     }),
     defineArrayMember({
@@ -45,29 +60,35 @@ export default defineType({
         },
       ],
     }),
+    // Replace code type with string for now
     defineArrayMember({
-      type: "code",
-      options: {
-        language: "typescript",
-        withFilename: true,
-        languageAlternatives: [
-          { title: "Bash", value: "bash" },
-          { title: "JavaScript", value: "js" },
-          { title: "TypeScript", value: "ts" },
-          { title: "TSX", value: "tsx" },
-          { title: "JSX", value: "jsx" },
-          { title: "CSS", value: "css" },
-          { title: "Groq", value: "graphql" },
-          { title: "HTML", value: "html" },
-          { title: "Json", value: "json" },
-          { title: "Markdown", value: "md" },
-          { title: "Python", value: "py" },
-          { title: "SCSS", value: "scss" },
-          { title: "SQL", value: "sql" },
-          { title: "Yaml", value: "yaml" },
-          { title: "Java", value: "java" },
-        ],
-      },
+      name: "codeBlock",
+      title: "Code Block",
+      type: "object",
+      fields: [
+        {
+          name: "code",
+          title: "Code",
+          type: "text",
+          rows: 10,
+        },
+        {
+          name: "language",
+          title: "Language",
+          type: "string",
+          options: {
+            list: [
+              { title: "JavaScript", value: "javascript" },
+              { title: "TypeScript", value: "typescript" },
+              { title: "HTML", value: "html" },
+              { title: "CSS", value: "css" },
+              { title: "Python", value: "python" },
+              { title: "Java", value: "java" },
+              { title: "Bash", value: "bash" },
+            ],
+          },
+        },
+      ],
     }),
     defineArrayMember({
       type: "youtube",

@@ -1,17 +1,21 @@
-import { defineConfig } from "sanity";
-import { deskTool } from "sanity/desk";
-import { visionTool } from "@sanity/vision";
-import { schemaTypes } from "./schemas";
-import { codeInput } from "@sanity/code-input";
-import { table } from "@sanity/table";
-import { projectId, dataset } from "./lib/env.api";
+'use client'
+
+import { defineConfig } from 'sanity'
+import { structureTool } from 'sanity/structure'
+import { visionTool } from '@sanity/vision'
+import { schema } from './sanity/schemaTypes'
+import { apiVersion, dataset, projectId } from './sanity/env'
+import { structure } from './sanity/structure'
+import { codeInput } from '@sanity/code-input'
 
 export default defineConfig({
-  name: "victoreke",
-  title: "victoreke.com",
-  basePath: "/studio",
+  basePath: '/studio',
   projectId,
   dataset,
-  plugins: [deskTool(), visionTool(), codeInput(), table()],
-  schema: { types: schemaTypes },
-});
+  schema,
+  plugins: [
+    structureTool({structure}),
+    visionTool({defaultApiVersion: apiVersion}),
+    codeInput()
+  ],
+})

@@ -1,5 +1,5 @@
+// schemas/table.ts
 import { defineField, defineType } from "sanity";
-import { TableWidget } from "@/app/components/widgets/TableWidget";
 import { LuTable } from "react-icons/lu";
 
 export const table = defineType({
@@ -9,9 +9,20 @@ export const table = defineType({
   icon: LuTable,
   fields: [
     defineField({
-      name: "table",
-      title: "Table",
-      type: "table",
+      name: "rows",
+      title: "Table Rows",
+      type: "array",
+      of: [{
+        type: "object",
+        name: "row",
+        fields: [
+          {
+            name: "cells",
+            type: "array",
+            of: [{ type: "string" }]
+          }
+        ]
+      }]
     }),
     defineField({
       name: "caption",
@@ -22,11 +33,14 @@ export const table = defineType({
   ],
   preview: {
     select: {
-      table: "table",
       caption: "caption",
+      rows: "rows"
     },
-  },
-  components: {
-    preview: TableWidget,
+    prepare({ caption, rows }) {
+      return {
+        title: caption || "Table",
+        subtitle: rows?.length ? `${rows.length} rows` : "Empty table"
+      };
+    }
   },
 });

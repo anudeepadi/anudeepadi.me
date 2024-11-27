@@ -1,13 +1,18 @@
 import { TableRow } from "@sanity/table";
 import { PortableTextBlock } from "sanity";
+// types/index.ts (update the Table interfaces)
+
+// types/index.ts (update the Table interfaces)
+interface TableRow {
+  cells: string[];
+}
 
 export interface Table {
   rows?: TableRow[];
-  title?: string;
 }
 
 export interface TableValueProps {
-  table?: Table;
+  rows?: TableRow[];
   caption?: string;
 }
 
