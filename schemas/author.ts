@@ -1,11 +1,12 @@
 import { defineField, defineType } from "sanity";
 import { BiUser } from "react-icons/bi";
+import { defineIcon } from "./utils";
 
 export default defineType({
   name: "author",
   title: "Author",
   type: "document",
-  icon: BiUser,
+  icon: () => defineIcon(BiUser),
   fields: [
     defineField({
       name: "name",

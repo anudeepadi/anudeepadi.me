@@ -1,11 +1,12 @@
-import { defineField } from "sanity";
+import { defineField, defineType } from "sanity";
 import { BiUser } from "react-icons/bi";
+import { defineIcon } from "./utils";
 
-const profile = {
+export default defineType({
   name: "profile",
   title: "Profile",
   type: "document",
-  icon: BiUser,
+  icon: () => defineIcon(BiUser),
   fields: [
     defineField({
       name: "fullName",
@@ -27,7 +28,7 @@ const profile = {
       description: "Upload a profile picture",
       options: {
         hotspot: true,
-        metadata: ["lqip"], // "blurhash", "palette", etc
+        metadata: ["lqip"],
       },
       fields: [
         {
@@ -76,6 +77,4 @@ const profile = {
       validation: (rule) => rule.required(),
     }),
   ],
-};
-
-export default profile;
+});

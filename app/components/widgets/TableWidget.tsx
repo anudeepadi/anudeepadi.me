@@ -2,7 +2,8 @@
 import { TableValueProps } from "@/types";
 
 export function TableWidget(props: TableValueProps) {
-  const { rows = [], caption } = props;
+  const { table, caption } = props;
+  const rows = table?.rows || [];
   
   if (!rows.length) {
     return <div className="p-4 text-gray-500">Empty table</div>;

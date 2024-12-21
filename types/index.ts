@@ -1,6 +1,5 @@
 import { TableRow } from "@sanity/table";
 import { PortableTextBlock } from "sanity";
-// types/index.ts (update the Table interfaces)
 
 // types/index.ts (update the Table interfaces)
 interface TableRow {
@@ -8,11 +7,11 @@ interface TableRow {
 }
 
 export interface Table {
-  rows?: TableRow[];
+  rows: TableRow[];
 }
 
 export interface TableValueProps {
-  rows?: TableRow[];
+  table: Table;
   caption?: string;
 }
 
