@@ -1,46 +1,66 @@
-# anudeepadi.me
+# Personal Portfolio Website
 
-My personal portfolio website showcasing my projects, skills, and experiences.
+## Overview
+My personal portfolio website built with Next.js 14, Sanity CMS, and TypeScript. Features a modern, responsive design with dark mode support and dynamic content management.
 
-## 🚀 Live Demo
+## 🚀 Features
 
-Visit my portfolio at: [anudeepadi.me](https://anudeepadi.me)
+### Core Functionality
+- Responsive design
+- Dark/Light mode
+- Blog with Sanity CMS integration
+- Dynamic portfolio projects
+- GitHub activity calendar
+- Comments system with Giscus
+- Performance optimized
+- SEO friendly
 
-## 🛠️ Built With
+### Technical Features
+- Server-Side Rendering (SSR)
+- Image optimization with Sharp
+- Analytics integration
+- TypeScript support
+- Styled with TailwindCSS
+- Animated transitions
+- Code syntax highlighting
 
-- Next.js - React framework for production
-- Tailwind CSS - For styling
-- Vercel - For deployment and hosting
-- React Icons - For beautiful icons
-- TypeScript - For type safety
+## 🛠️ Tech Stack
 
-## 🌟 Features
+### Frontend
+- Next.js 14
+- TypeScript
+- TailwindCSS
+- Framer Motion
+- React Icons
+- React GitHub Calendar
 
-- Responsive design that works on all devices
-- Dark/Light mode toggle
-- Project showcase with live demos and source code
-- Skills and technology expertise section
-- Contact information and social media links
-- Blog section for sharing thoughts and experiences
-- Clean and modern UI/UX
+### Content Management
+- Sanity.io
+- Portable Text
+- Sanity Image URL
+- Code Input Support
+- Table Support
 
-## 📁 Project Structure
+### Development Tools
+- ESLint
+- Sharp for images
+- Vercel Analytics
+- Next Themes
+- Styled Components
 
-```
-anudeepadi.me/
-├── components/       # React components
-├── pages/           # Next.js pages
-├── public/          # Static files
-├── styles/          # CSS styles
-├── types/           # TypeScript types
-└── utils/           # Utility functions
-```
+## 📦 Installation
 
-## 🚀 Getting Started
+### Prerequisites
+- Node.js 18+
+- npm or yarn
+- Sanity account
+
+### Setup Steps
 
 1. Clone the repository:
 ```bash
 git clone https://github.com/anudeepadi/anudeepadi.me.git
+cd anudeepadi.me
 ```
 
 2. Install dependencies:
@@ -50,27 +70,125 @@ npm install
 yarn install
 ```
 
-3. Run the development server:
+3. Set up environment variables:
+```env
+NEXT_PUBLIC_SANITY_PROJECT_ID=your_sanity_project_id
+NEXT_PUBLIC_SANITY_DATASET=production
+NEXT_PUBLIC_SANITY_API_VERSION=2023-05-03
+SANITY_API_TOKEN=your_sanity_token
+NEXT_PUBLIC_WEBSITE_URL=your_website_url
+```
+
+4. Start development server:
 ```bash
 npm run dev
 # or
 yarn dev
 ```
 
-4. Open [http://localhost:3000](http://localhost:3000) in your browser
+## 🔧 Configuration
 
-## 📝 License
+### Sanity Studio Setup
+```bash
+# Navigate to Sanity studio directory
+cd studio
 
-This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details.
+# Install dependencies
+npm install
 
-## 📧 Contact
+# Start Sanity studio
+npm run dev
+```
 
-Feel free to reach out if you have any questions or would like to connect!
+### Blog Configuration
+```typescript
+// Configure blog settings in config/blog.ts
+export const blogConfig = {
+  postsPerPage: 6,
+  featuredPosts: 3,
+  categoriesShown: 5
+};
+```
 
+## 📝 Content Management
+
+### Blog Posts
+- Create and edit posts in Sanity Studio
+- Support for code blocks
+- Image optimization
+- Table support
+- Custom components
+
+### Portfolio Projects
+- Manage projects through Sanity
+- Add images and descriptions
+- Link to live demos and repositories
+- Tag with technologies used
+
+## 🚀 Deployment
+
+### Vercel Deployment
+The site is optimized for deployment on Vercel:
+
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/anudeepadi/anudeepadi.me)
+
+### Build Commands
+```bash
+# Build for production
+npm run build
+
+# Start production server
+npm start
+```
+
+## 🎨 Customization
+
+### Theme Configuration
+```typescript
+// Customize theme in styles/theme.ts
+const theme = {
+  colors: {
+    primary: '#...',
+    secondary: '#...',
+    // ...
+  },
+  // ...
+};
+```
+
+### Component Styling
+- TailwindCSS utility classes
+- Styled Components support
+- Custom CSS modules
+- Framer Motion animations
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+- Next.js team
+- Sanity.io
+- Vercel platform
+- Open source community
+
+## 📞 Contact
+- Website: [anudeepadi.me](https://anudeepadi.me)
 - GitHub: [@anudeepadi](https://github.com/anudeepadi)
-- LinkedIn: [Anudeep Adi]()
-- Email: contact@anudeepadi.me
+- LinkedIn: [Anudeep Adiraju](https://linkedin.com/in/adirajuadi)
+
+## 📊 Analytics
+Site analytics are handled by Vercel Analytics for privacy-focused tracking of user interactions and performance metrics.
 
 ---
 
-⭐️ If you like this repository, please give it a star!
+Built with ❤️ by Anudeep Adiraju
