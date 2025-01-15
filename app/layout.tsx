@@ -18,9 +18,9 @@ const options = {
   title: "Anudeep Adiraju | Software Developer",
   description:
     "Victor Eke is a Software Developer and Technical Writer who is passionate about building solutions and contributing to open source communities",
-  url: "https://victoreke.com",
+  url: "https://anudeepadi.me",
   ogImage:
-    "https://res.cloudinary.com/victoreke/image/upload/v1692635746/victoreke/og.png",
+    "https://res.cloudinary.com/",
 };
 
 export const metadata: Metadata = {
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: options.title,
     url: options.url,
-    siteName: "victoreke.com",
+    siteName: "anudeepadi.me",
     locale: "en-US",
     type: "website",
     description: options.description,
