@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
@@ -140,7 +140,7 @@ export default async function Post({ params }: Props) {
             <div className="relative w-full h-40 pt-[52.5%]">
               <Image
                 className="rounded-xl border dark:border-zinc-800 border-zinc-100 object-cover"
-                layout="fill"
+                fill
                 src={post.coverImage?.image || fallbackImage}
                 alt={post.coverImage?.alt || post.title}
                 quality={100}
@@ -167,7 +167,7 @@ export default async function Post({ params }: Props) {
                       .height(80)
                       .url()}
                     alt={post.author.photo.alt}
-                    layout="fill"
+                    fill
                     className="dark:bg-zinc-800 bg-zinc-300 rounded-full object-cover"
                   />
                 </div>
