@@ -1,4 +1,4 @@
-import Image from "next/legacy/image";
+import Image from "next/image";
 import Link from "next/link";
 import { postsQuery } from "@/lib/sanity.query";
 import { PostType } from "@/types";
@@ -35,7 +35,7 @@ export default async function Posts() {
                       src={post.coverImage?.image || fallbackImage}
                       className="dark:bg-zinc-800 bg-zinc-100 rounded-md object-cover group-hover:scale-125 duration-300"
                       alt={post.coverImage?.alt || post.title}
-                      layout="fill"
+                      fill
                       placeholder={post.coverImage ? "blur" : "empty"}
                       blurDataURL={post.coverImage?.lqip || ""}
                     />
