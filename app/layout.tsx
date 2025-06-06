@@ -17,7 +17,7 @@ const inter = Inter({
 const options = {
   title: "Anudeep Adiraju | Software Developer",
   description:
-    "Victor Eke is a Software Developer and Technical Writer who is passionate about building solutions and contributing to open source communities",
+    "Anudeep Adiraju is a Software Developer and Technical Writer who is passionate about building solutions and contributing to open source communities",
   url: "https://anudeepadi.me",
   ogImage:
     "https://res.cloudinary.com/",
