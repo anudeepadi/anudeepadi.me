@@ -14,13 +14,13 @@ type props = {
 };
 
 export default function SharePost({ title, slug, description }: props) {
-  const blog = encodeURIComponent("https://victoreke.com/blog/");
+  const blog = encodeURIComponent("https://anudeepadi.me/blog/");
   const options = [
     {
       icon: BiLogoTwitter,
       name: "Twitter",
       shareUrl: `https://twitter.com/intent/tweet?text=${encodeURIComponent(
-        "Thank you @victoreke for writing this post."
+        "Thank you @anudeepadi for writing this post."
       )}.%0A%0A${title}%0A%0A${blog}${slug}`,
     },
     {
