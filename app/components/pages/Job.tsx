@@ -30,16 +30,22 @@ export default async function Job() {
               className="flex items-start lg:gap-x-6 gap-x-4 max-w-2xl relative before:absolute before:bottom-0 before:top-[5rem] before:left-9 before:w-[1px] before:h-[calc(100%-70px)] dark:before:bg-zinc-800 before:bg-zinc-200"
             >
               <RefLink
-                href={data.url}
+                href={data.url || "#"}
                 className="grid place-items-center dark:bg-primary-bg bg-secondary-bg border dark:border-zinc-800 border-zinc-200 min-h-[80px] min-w-[80px] p-2 rounded-md overflow-clip relative"
               >
-                <Image
-                  src={data.logo}
-                  className="object-cover duration-300"
-                  alt={`${data.name} logo`}
-                  width={50}
-                  height={50}
-                />
+                {data.logo ? (
+                  <Image
+                    src={data.logo}
+                    className="object-cover duration-300"
+                    alt={`${data.name} logo`}
+                    width={50}
+                    height={50}
+                  />
+                ) : (
+                  <div className="w-[50px] h-[50px] bg-zinc-200 dark:bg-zinc-700 rounded flex items-center justify-center text-xs font-semibold text-zinc-500">
+                    {data.name.charAt(0).toUpperCase()}
+                  </div>
+                )}
               </RefLink>
               <div className="flex flex-col items-start">
                 <h3 className="text-xl font-semibold">{data.name}</h3>

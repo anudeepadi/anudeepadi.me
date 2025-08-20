@@ -1,5 +1,4 @@
 import Image from "next/image";
-import duckImage from "@/public/searching-duck.gif";
 
 type stateType = {
   value?: string;
@@ -16,7 +15,7 @@ export default function EmptyState({ value, title, icon, message }: stateType) {
           <Image
             width={80}
             height={80}
-            src={duckImage}
+            src="/searching-duck.gif"
             alt="Yellow duck searching"
           />
         )}
