@@ -268,7 +268,7 @@ export default function DataDashboard() {
   };
 
   return (
-    <section className="mt-32 max-w-7xl">
+    <section id="dashboard-section" className="mt-32 max-w-7xl">
       <Slide delay={0.17}>
         <div className="mb-8">
           <h2 className="text-4xl mb-4 font-bold tracking-tight">

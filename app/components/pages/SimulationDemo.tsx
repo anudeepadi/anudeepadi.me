@@ -93,7 +93,7 @@ export default function SimulationDemo() {
   };
 
   return (
-    <section className="mt-32 max-w-6xl">
+    <section id="simulation-section" className="mt-32 max-w-6xl">
       <Slide delay={0.17}>
         <div className="mb-8">
           <h2 className="text-4xl mb-4 font-bold tracking-tight">

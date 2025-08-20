@@ -6,6 +6,7 @@ import { incognito } from "./assets/font/font";
 import { gitlabmono } from "./assets/font/font";
 import Navbar from "./components/global/Navbar";
 import Footer from "./components/global/Footer";
+import CommandPaletteProvider from "./components/global/CommandPaletteProvider";
 import { Providers } from "./providers";
 
 const inter = Inter({
@@ -55,9 +56,11 @@ export default function RootLayout({
         className={`${incognito.variable} ${inter.className} ${gitlabmono.variable} dark:bg-zinc-900 bg-white dark:text-white text-zinc-700`}
       >
         <Providers>
-          <Navbar />
-          {children}
-          <Footer />
+          <CommandPaletteProvider>
+            <Navbar />
+            {children}
+            <Footer />
+          </CommandPaletteProvider>
         </Providers>
       </body>
       <Script
