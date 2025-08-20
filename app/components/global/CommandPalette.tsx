@@ -144,6 +144,15 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       keywords: ['simulation', 'geothermal', 'calculator', 'demo']
     },
     {
+      id: 'scroll-playground',
+      title: 'Jump to Code Playground',
+      description: 'Scroll to interactive code playground',
+      category: 'Navigation',
+      icon: '💻',
+      action: () => scrollToSection('playground-section'),
+      keywords: ['playground', 'code', 'editor', 'monaco']
+    },
+    {
       id: 'scroll-dashboard',
       title: 'Jump to Dashboard',
       description: 'Scroll to data visualization dashboard',

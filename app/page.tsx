@@ -8,6 +8,7 @@ import { sanityFetch } from "@/lib/sanity.client";
 import ContributionGraph from "./components/pages/GithubCalendarComponent";
 import SimulationDemo from "./components/pages/SimulationDemo";
 import DataDashboard from "./components/pages/DataDashboard";
+import CodePlayground from "./components/pages/CodePlayground";
 
 export default async function Home() {
   const profile: ProfileType[] = await sanityFetch({
@@ -40,6 +41,7 @@ export default async function Home() {
       </section>
       {/* Temporarily disabled due to image loading issue */}
       {/* <ContributionGraph /> */}
+      <CodePlayground />
       <SimulationDemo />
       <DataDashboard />
       <Job />
