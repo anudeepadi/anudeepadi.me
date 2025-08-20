@@ -23,6 +23,15 @@ My personal portfolio website built with Next.js 14, Sanity CMS, and TypeScript.
 - Styled with TailwindCSS
 - Animated transitions
 - Code syntax highlighting
+- Interactive geothermal simulation calculator
+- Real-time data visualization dashboard
+- Command palette navigation (Cmd+K)
+- Enhanced project cards with live previews
+- Interactive skills matrix component
+- Performance monitoring and metrics
+- PWA support with offline capabilities
+- CI/CD pipeline with automated testing
+- Lighthouse performance optimization
 
 ## 🛠️ Tech Stack
 
