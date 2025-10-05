@@ -8,6 +8,7 @@ import Navbar from "./components/global/Navbar";
 import Footer from "./components/global/Footer";
 import CommandPaletteProvider from "./components/global/CommandPaletteProvider";
 import { Providers } from "./providers";
+import { Analytics } from "@vercel/analytics/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -62,6 +63,7 @@ export default function RootLayout({
             <Footer />
           </CommandPaletteProvider>
         </Providers>
+        <Analytics />
       </body>
       <Script
         defer
