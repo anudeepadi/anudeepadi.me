@@ -1,28 +1,38 @@
-import { Metadata } from "next";
+"use client";
+
 import PageHeading from "../components/shared/PageHeading";
-import SimulationDemo from "../components/pages/SimulationDemo";
-import DataDashboard from "../components/pages/DataDashboard";
-import CodePlayground from "../components/pages/CodePlayground";
-import AlgorithmVisualizer from "../components/pages/AlgorithmVisualizer";
-import DataAnalysisTool from "../components/pages/DataAnalysisTool";
-import ArchitectureShowcase from "../components/pages/ArchitectureShowcase";
+import dynamic from "next/dynamic";
 
-export const metadata: Metadata = {
-  title: "Dev Tools | Anudeep Adiraju",
-  metadataBase: new URL("https://anudeepadi.me/dev-tools"),
-  description: "Interactive development tools and simulations",
-  openGraph: {
-    title: "Dev Tools | Anudeep Adiraju",
-    url: "https://anudeepadi.me/dev-tools",
-    description: "Interactive development tools and simulations",
-    images: "https://res.cloudinary.com/",
-  },
-};
+// Dynamically import heavy components with no SSR
+const CodePlayground = dynamic(() => import("../components/pages/CodePlayground"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
 
-// Optimize rendering performance
-export const dynamic = 'force-dynamic';
-export const revalidate = 60; // Revalidate every 60 seconds
-export const maxDuration = 30; // Max execution time in seconds
+const AlgorithmVisualizer = dynamic(() => import("../components/pages/AlgorithmVisualizer"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
+
+const DataAnalysisTool = dynamic(() => import("../components/pages/DataAnalysisTool"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
+
+const ArchitectureShowcase = dynamic(() => import("../components/pages/ArchitectureShowcase"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
+
+const SimulationDemo = dynamic(() => import("../components/pages/SimulationDemo"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
+
+const DataDashboard = dynamic(() => import("../components/pages/DataDashboard"), {
+  ssr: false,
+  loading: () => <div className="h-96 bg-zinc-100 dark:bg-zinc-800 rounded-lg animate-pulse" />
+});
 
 export default function DevTools() {
   return (
