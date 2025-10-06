@@ -6,6 +6,10 @@ import Social from "./components/shared/Social";
 import { Slide } from "./animation/Slide";
 import { sanityFetch } from "@/lib/sanity.client";
 
+// Optimize Sanity data fetching
+export const revalidate = 60; // Revalidate every 60 seconds
+export const maxDuration = 30; // Max execution time in seconds
+
 export default async function Home() {
   const profile: ProfileType[] = await sanityFetch({
     query: profileQuery,

@@ -19,6 +19,11 @@ export const metadata: Metadata = {
   },
 };
 
+// Optimize rendering performance
+export const dynamic = 'force-dynamic';
+export const revalidate = 60; // Revalidate every 60 seconds
+export const maxDuration = 30; // Max execution time in seconds
+
 export default function DevTools() {
   return (
     <main className="max-w-7xl mx-auto md:px-16 px-6">

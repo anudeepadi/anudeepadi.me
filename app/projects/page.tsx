@@ -20,6 +20,10 @@ export const metadata: Metadata = {
   },
 };
 
+// Optimize Sanity data fetching
+export const revalidate = 60; // Revalidate every 60 seconds
+export const maxDuration = 30; // Max execution time in seconds
+
 export default async function Project() {
   const projects: ProjectType[] = await sanityFetch({
     query: projectsQuery,
