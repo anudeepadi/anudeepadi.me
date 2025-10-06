@@ -5,6 +5,7 @@ import DataDashboard from "../components/pages/DataDashboard";
 import CodePlayground from "../components/pages/CodePlayground";
 import AlgorithmVisualizer from "../components/pages/AlgorithmVisualizer";
 import DataAnalysisTool from "../components/pages/DataAnalysisTool";
+import ArchitectureShowcase from "../components/pages/ArchitectureShowcase";
 
 export const metadata: Metadata = {
   title: "Dev Tools | Anudeep Adiraju",
@@ -23,12 +24,13 @@ export default function DevTools() {
     <main className="max-w-7xl mx-auto md:px-16 px-6">
       <PageHeading
         title="Active Dev Tools"
-        description="Interactive tools and simulations for developers. Explore code playgrounds, algorithm visualizations, data analysis, geothermal energy calculations, and more."
+        description="Interactive tools and simulations for developers. Explore code playgrounds, algorithm visualizations, data analysis, architecture showcase, geothermal energy calculations, and more."
       />
 
       <CodePlayground />
       <AlgorithmVisualizer />
       <DataAnalysisTool />
+      <ArchitectureShowcase />
       <SimulationDemo />
       <DataDashboard />
     </main>
