@@ -9,6 +9,7 @@ import {
   HiCamera,
   HiOutlineX,
   HiUser,
+  HiCog,
 } from "react-icons/hi";
 import Logo from "../../../public/logo.png";
 
@@ -29,6 +30,11 @@ export default function MobileMenu() {
       title: "Blog",
       href: "/blog",
       icon: HiBookmarkAlt,
+    },
+    {
+      title: "Dev Tools",
+      href: "/dev-tools",
+      icon: HiCog,
     },
     {
       title: "Photos",

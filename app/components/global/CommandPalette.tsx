@@ -124,6 +124,15 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       keywords: ['blog', 'posts', 'articles', 'writing']
     },
     {
+      id: 'nav-devtools',
+      title: 'Go to Dev Tools',
+      description: 'Explore interactive development tools',
+      category: 'Navigation',
+      icon: '⚙️',
+      action: () => navigateTo('/dev-tools'),
+      keywords: ['dev', 'tools', 'developer', 'utilities', 'simulation', 'geothermal']
+    },
+    {
       id: 'nav-photos',
       title: 'Go to Photos',
       description: 'Browse photo gallery',

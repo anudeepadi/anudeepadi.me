@@ -6,6 +6,10 @@ import { Slide } from "../animation/Slide";
 import { sanityFetch } from "@/lib/sanity.client";
 import PageHeading from "../components/shared/PageHeading";
 import EnhancedProjectCard from "../components/pages/EnhancedProjectCard";
+import CodePlayground from "../components/pages/CodePlayground";
+import AlgorithmVisualizer from "../components/pages/AlgorithmVisualizer";
+import DataAnalysisTool from "../components/pages/DataAnalysisTool";
+import ArchitectureShowcase from "../components/pages/ArchitectureShowcase";
 
 export const metadata: Metadata = {
   title: "Project | Anudeep Adiraju",
@@ -33,19 +37,29 @@ export default async function Project() {
         description="I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
       />
 
+      <CodePlayground />
+      <AlgorithmVisualizer />
+      <DataAnalysisTool />
+      <ArchitectureShowcase />
+
       <Slide delay={0.1}>
-        {projects.length > 0 ? (
-          <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-12">
-            {projects.map((project) => (
-              <EnhancedProjectCard 
-                key={project._id} 
-                project={project} 
-              />
-            ))}
-          </section>
-        ) : (
-          <EmptyState value="Projects" />
-        )}
+        <div className="mt-16">
+          <h2 className="font-incognito font-semibold tracking-tight text-2xl sm:text-3xl mb-8 dark:text-zinc-100 text-zinc-800">
+            Portfolio Projects
+          </h2>
+          {projects.length > 0 ? (
+            <section className="grid lg:grid-cols-3 md:grid-cols-2 grid-cols-1 gap-8 mb-12">
+              {projects.map((project) => (
+                <EnhancedProjectCard
+                  key={project._id}
+                  project={project}
+                />
+              ))}
+            </section>
+          ) : (
+            <EmptyState value="Projects" />
+          )}
+        </div>
       </Slide>
     </main>
   );

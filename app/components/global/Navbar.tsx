@@ -25,6 +25,10 @@ export default function Navbar() {
       href: "/blog",
     },
     {
+      title: "Dev Tools",
+      href: "/dev-tools",
+    },
+    {
       title: "Photos",
       href: "/photos",
     },
