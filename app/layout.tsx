@@ -9,6 +9,7 @@ import Footer from "./components/global/Footer";
 import CommandPaletteProvider from "./components/global/CommandPaletteProvider";
 import { Providers } from "./providers";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -64,6 +65,7 @@ export default function RootLayout({
           </CommandPaletteProvider>
         </Providers>
         <Analytics />
+        <SpeedInsights />
       </body>
       <Script
         defer
