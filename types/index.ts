@@ -1,4 +1,4 @@
-import { TableRow } from "@sanity/table";
+import { TableRow as SanityTableRow } from "@sanity/table";
 import { PortableTextBlock } from "sanity";
 
 // types/index.ts (update the Table interfaces)

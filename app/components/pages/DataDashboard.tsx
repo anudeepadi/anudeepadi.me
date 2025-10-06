@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useMemo, useEffect } from "react";
+import { useState, useMemo, useEffect, useCallback } from "react";
 import { 
   LineChart, 
   Line, 
@@ -64,7 +64,7 @@ export default function DataDashboard() {
   }, [isRealTime]);
 
   // Generate realistic time-series data
-  const generateTimeSeriesData = (timeRange: string): DataPoint[] => {
+  const generateTimeSeriesData = useCallback((timeRange: string): DataPoint[] => {
     const now = currentTime;
     const ranges = {
       '1h': { points: 60, interval: 60000 }, // 1 minute intervals
@@ -101,9 +101,9 @@ export default function DataDashboard() {
         activeUsers: Math.max(0, Math.floor(baseLoad * 500 + randomNoise() * 100 + spikes * 200))
       };
     });
-  };
+  }, [currentTime]);
 
-  const data = useMemo(() => generateTimeSeriesData(filters.timeRange), [filters.timeRange, currentTime]);
+  const data = useMemo(() => generateTimeSeriesData(filters.timeRange), [filters.timeRange, generateTimeSeriesData]);
 
   // Performance metrics calculations
   const metrics = useMemo(() => {
@@ -445,7 +445,7 @@ export default function DataDashboard() {
                     cy="50%"
                     outerRadius={80}
                     dataKey="value"
-                    label={({ name, value }) => `${name}: ${value.toFixed(1)}%`}
+                    label={({ name, value }) => `${name}: ${value ? value.toFixed(1) : '0'}%`}
                   >
                     {resourceData.map((entry, index) => (
                       <Cell key={`cell-${index}`} fill={entry.color} />

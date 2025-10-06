@@ -9,6 +9,10 @@ import ContributionGraph from "./components/pages/GithubCalendarComponent";
 import SimulationDemo from "./components/pages/SimulationDemo";
 import DataDashboard from "./components/pages/DataDashboard";
 import CodePlayground from "./components/pages/CodePlayground";
+import AlgorithmVisualizer from "./components/pages/AlgorithmVisualizer";
+import DataAnalysisTool from "./components/pages/DataAnalysisTool";
+import ArchitectureShowcase from "./components/pages/ArchitectureShowcase";
+import EnhancedBlog from "./components/pages/EnhancedBlog";
 
 export default async function Home() {
   const profile: ProfileType[] = await sanityFetch({
@@ -42,6 +46,10 @@ export default async function Home() {
       {/* Temporarily disabled due to image loading issue */}
       {/* <ContributionGraph /> */}
       <CodePlayground />
+      <AlgorithmVisualizer />
+      <DataAnalysisTool />
+      <ArchitectureShowcase />
+      <EnhancedBlog />
       <SimulationDemo />
       <DataDashboard />
       <Job />

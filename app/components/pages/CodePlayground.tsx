@@ -178,87 +178,41 @@ console.log('Data:', data);`,
       {
         name: 'analysis.py',
         content: `# Python Data Analysis Demo
-import json
-import statistics
-from typing import List, Dict
+import math
 
-# Sample dataset
-sales_data = [
-    {"month": "Jan", "revenue": 12000, "customers": 150},
-    {"month": "Feb", "revenue": 15000, "customers": 180},
-    {"month": "Mar", "revenue": 18000, "customers": 220},
-    {"month": "Apr", "revenue": 22000, "customers": 280},
-    {"month": "May", "revenue": 19000, "customers": 240},
-    {"month": "Jun", "revenue": 25000, "customers": 320}
-]
+# Simple sales data analysis
+sales_data = [150, 180, 220, 280, 240, 320]
+months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
 
-def analyze_sales_data(data: List[Dict]) -> Dict:
-    """Comprehensive sales data analysis"""
+def analyze_data(data):
+    total = sum(data)
+    average = total / len(data)
+    maximum = max(data)
+    minimum = min(data)
     
-    revenues = [item["revenue"] for item in data]
-    customers = [item["customers"] for item in data]
+    print("📊 Sales Analysis Report")
+    print("=" * 30)
+    print("Total Sales:", total)
+    print("Average Sales:", round(average, 2))
+    print("Highest Month:", maximum)
+    print("Lowest Month:", minimum)
     
-    analysis = {
-        "total_revenue": sum(revenues),
-        "avg_revenue": statistics.mean(revenues),
-        "median_revenue": statistics.median(revenues),
-        "revenue_growth": calculate_growth_rate(revenues),
-        "total_customers": sum(customers),
-        "avg_customers": statistics.mean(customers),
-        "customer_growth": calculate_growth_rate(customers),
-        "revenue_per_customer": sum(revenues) / sum(customers),
-        "best_month": max(data, key=lambda x: x["revenue"])["month"],
-        "worst_month": min(data, key=lambda x: x["revenue"])["month"]
-    }
+    # Calculate growth
+    if len(data) > 1:
+        growth = ((data[-1] - data[0]) / data[0]) * 100
+        print("Growth Rate:", str(round(growth, 1)) + "%")
     
-    return analysis
-
-def calculate_growth_rate(values: List[float]) -> float:
-    """Calculate overall growth rate"""
-    if len(values) < 2:
-        return 0.0
-    return ((values[-1] - values[0]) / values[0]) * 100
-
-def generate_insights(analysis: Dict) -> List[str]:
-    """Generate business insights from analysis"""
-    insights = []
+    # Monthly breakdown
+    print("\\nMonthly Breakdown:")
+    for i, month in enumerate(months):
+        print(month + ":", data[i])
     
-    if analysis["revenue_growth"] > 0:
-        insights.append(f"📈 Revenue grew by {analysis['revenue_growth']:.1f}% over the period")
-    else:
-        insights.append(f"📉 Revenue declined by {abs(analysis['revenue_growth']):.1f}%")
-    
-    if analysis["customer_growth"] > 0:
-        insights.append(f"👥 Customer base grew by {analysis['customer_growth']:.1f}%")
-    
-    insights.append(f"💰 Average revenue per customer: ${analysis['revenue_per_customer']:.2f}")
-    insights.append(f"🏆 Best performing month: {analysis['best_month']}")
-    insights.append(f"📊 Median monthly revenue: ${analysis['median_revenue']:,}")
-    
-    return insights
+    return {"total": total, "avg": average, "growth": growth}
 
-# Execute analysis
-print("🔍 Sales Data Analysis Report")
-print("=" * 40)
-
-analysis_results = analyze_sales_data(sales_data)
-
-print(f"Total Revenue: ${analysis_results['total_revenue']:,}")
-print(f"Average Monthly Revenue: ${analysis_results['avg_revenue']:,.2f}")
-print(f"Total Customers: {analysis_results['total_customers']:,}")
-print(f"Revenue per Customer: ${analysis_results['revenue_per_customer']:.2f}")
-
-print("\\n📋 Key Insights:")
-for insight in generate_insights(analysis_results):
-    print(f"  • {insight}")
-
-print("\\n📊 Monthly Breakdown:")
-for month_data in sales_data:
-    efficiency = month_data["revenue"] / month_data["customers"]
-    print(f"  {month_data['month']}: ${month_data['revenue']:,} "
-          f"({month_data['customers']} customers, ${efficiency:.2f}/customer)")
-
-print("\\n✅ Analysis complete!")`,
+# Run analysis
+result = analyze_data(sales_data)
+print("\\n✅ Analysis completed!")
+print("Key insight: Growth of", str(round(result["growth"], 1)) + "%")`,
         language: 'python'
       }
     ]
@@ -520,24 +474,24 @@ export default function CodePlayground() {
     loadTemplate(DEFAULT_TEMPLATES[0]);
   }, []);
 
-  // Load Pyodide for Python execution
-  useEffect(() => {
-    const loadPyodide = async () => {
-      if (typeof window !== 'undefined' && !pyodideRef.current) {
-        try {
-          const { loadPyodide } = await import('pyodide');
-          pyodideRef.current = await loadPyodide({
-            indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/'
-          });
-          console.log('🐍 Pyodide loaded successfully');
-        } catch (error) {
-          console.error('Failed to load Pyodide:', error);
-        }
-      }
-    };
+  // Load Pyodide for Python execution (temporarily disabled)
+  // useEffect(() => {
+  //   const loadPyodide = async () => {
+  //     if (typeof window !== 'undefined' && !pyodideRef.current) {
+  //       try {
+  //         const { loadPyodide } = await import('pyodide');
+  //         pyodideRef.current = await loadPyodide({
+  //           indexURL: 'https://cdn.jsdelivr.net/pyodide/v0.25.0/full/'
+  //         });
+  //         console.log('🐍 Pyodide loaded successfully');
+  //       } catch (error) {
+  //         console.error('Failed to load Pyodide:', error);
+  //       }
+  //     }
+  //   };
 
-    loadPyodide();
-  }, []);
+  //   loadPyodide();
+  // }, []);
 
   const loadTemplate = (template: CodeTemplate) => {
     const newFiles = template.files.map(file => ({
@@ -623,28 +577,31 @@ export default function CodePlayground() {
   };
 
   const runPythonCode = async (code: string) => {
-    if (!pyodideRef.current) {
-      setOutput('❌ Python environment not loaded. Please wait and try again.');
-      return;
-    }
+    // Temporary message until Pyodide is properly configured
+    setOutput('🐍 Python execution coming soon! For now, you can write and edit Python code.');
+    
+    // if (!pyodideRef.current) {
+    //   setOutput('❌ Python environment not loaded. Please wait and try again.');
+    //   return;
+    // }
 
-    try {
-      // Capture Python output
-      pyodideRef.current.runPython(`
-        import sys
-        from io import StringIO
-        sys.stdout = StringIO()
-      `);
+    // try {
+    //   // Capture Python output
+    //   pyodideRef.current.runPython(`
+    //     import sys
+    //     from io import StringIO
+    //     sys.stdout = StringIO()
+    //   `);
 
-      // Run user code
-      pyodideRef.current.runPython(code);
+    //   // Run user code
+    //   pyodideRef.current.runPython(code);
 
-      // Get output
-      const stdout = pyodideRef.current.runPython('sys.stdout.getvalue()');
-      setOutput(stdout || '✅ Code executed successfully (no output)');
-    } catch (error: any) {
-      setOutput(`❌ Python Error: ${error.message}`);
-    }
+    //   // Get output
+    //   const stdout = pyodideRef.current.runPython('sys.stdout.getvalue()');
+    //   setOutput(stdout || '✅ Code executed successfully (no output)');
+    // } catch (error: any) {
+    //   setOutput(`❌ Python Error: ${error.message}`);
+    // }
   };
 
   const runJavaScriptCode = (code: string) => {

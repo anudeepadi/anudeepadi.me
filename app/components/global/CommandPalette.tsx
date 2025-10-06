@@ -153,6 +153,42 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       keywords: ['playground', 'code', 'editor', 'monaco']
     },
     {
+      id: 'scroll-algorithms',
+      title: 'Jump to Algorithm Visualizer',
+      description: 'Scroll to algorithm visualization section',
+      category: 'Navigation',
+      icon: '🧮',
+      action: () => scrollToSection('algorithm-section'),
+      keywords: ['algorithms', 'sorting', 'visualization', 'computer science']
+    },
+    {
+      id: 'scroll-analysis',
+      title: 'Jump to Data Analysis Tool',
+      description: 'Scroll to data analysis and visualization section',
+      category: 'Navigation',
+      icon: '📊',
+      action: () => scrollToSection('analysis-section'),
+      keywords: ['analysis', 'data', 'csv', 'statistics', 'insights']
+    },
+    {
+      id: 'scroll-architecture',
+      title: 'Jump to Architecture Showcase',
+      description: 'Scroll to project architecture and system design section',
+      category: 'Navigation',
+      icon: '🏗️',
+      action: () => scrollToSection('architecture-section'),
+      keywords: ['architecture', 'system', 'design', 'infrastructure', 'microservices']
+    },
+    {
+      id: 'scroll-blog',
+      title: 'Jump to Enhanced Blog',
+      description: 'Scroll to interactive developer blog section',
+      category: 'Navigation',
+      icon: '📝',
+      action: () => scrollToSection('blog-section'),
+      keywords: ['blog', 'articles', 'tutorials', 'code examples', 'writing']
+    },
+    {
       id: 'scroll-dashboard',
       title: 'Jump to Dashboard',
       description: 'Scroll to data visualization dashboard',
@@ -403,7 +439,7 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
             {filteredCommands.length === 0 ? (
               <div className="p-8 text-center text-zinc-500">
                 <span className="text-2xl mb-2 block">🤷‍♂️</span>
-                No commands found for "{query}"
+                No commands found for &ldquo;{query}&rdquo;
               </div>
             ) : (
               <div className="py-2">
