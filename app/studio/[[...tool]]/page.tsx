@@ -8,7 +8,10 @@ import { NextStudio } from 'next-sanity/studio'
 import config from '../../../sanity.config'
 import { Metadata, Viewport } from 'next'
 
-export const dynamic = 'force-static'
+// Optimize for admin panel - load on-demand with extended timeout
+export const dynamic = 'force-dynamic'
+export const revalidate = 0
+export const maxDuration = 30
 
 export const metadata: Metadata = {
   title: 'Sanity Studio',
