@@ -156,7 +156,7 @@ export default function EnhancedProjectCard({ project }: ProjectCardProps) {
       className="group dark:bg-primary-bg bg-white border dark:border-zinc-800 border-zinc-200 rounded-xl overflow-hidden hover:shadow-xl dark:hover:shadow-2xl transition-all duration-300"
     >
       {/* Project Preview/Cover Image */}
-      <div className="relative h-48 bg-gradient-to-br from-primary-color to-secondary-color overflow-hidden">
+      <div className="relative h-48 bg-gradient-to-br from-zinc-100 to-zinc-200 dark:from-zinc-800 dark:to-zinc-900 overflow-hidden">
         {project.coverImage?.image ? (
           <Image
             src={project.coverImage.image}

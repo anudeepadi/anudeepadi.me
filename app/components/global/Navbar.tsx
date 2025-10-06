@@ -28,10 +28,6 @@ export default function Navbar() {
       title: "Dev Tools",
       href: "/dev-tools",
     },
-    {
-      title: "Photos",
-      href: "/photos",
-    },
   ];
 
   return (

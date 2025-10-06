@@ -6,9 +6,6 @@ import { Slide } from "../animation/Slide";
 import { sanityFetch } from "@/lib/sanity.client";
 import PageHeading from "../components/shared/PageHeading";
 import EnhancedProjectCard from "../components/pages/EnhancedProjectCard";
-import CodePlayground from "../components/pages/CodePlayground";
-import AlgorithmVisualizer from "../components/pages/AlgorithmVisualizer";
-import DataAnalysisTool from "../components/pages/DataAnalysisTool";
 import ArchitectureShowcase from "../components/pages/ArchitectureShowcase";
 
 export const metadata: Metadata = {
@@ -37,9 +34,6 @@ export default async function Project() {
         description="I've worked on tons of little projects over the years but these are the ones that I'm most proud of. Many of them are open-source, so if you see something that piques your interest, check out the code and contribute if you have ideas on how it can be improved."
       />
 
-      <CodePlayground />
-      <AlgorithmVisualizer />
-      <DataAnalysisTool />
       <ArchitectureShowcase />
 
       <Slide delay={0.1}>

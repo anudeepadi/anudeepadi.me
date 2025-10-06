@@ -36,11 +36,6 @@ export default function MobileMenu() {
       href: "/dev-tools",
       icon: HiCog,
     },
-    {
-      title: "Photos",
-      href: "/photos",
-      icon: HiCamera,
-    },
   ];
 
   const onToggleNav = () => {

@@ -132,15 +132,6 @@ export default function CommandPalette({ isOpen, onClose }: CommandPaletteProps)
       action: () => navigateTo('/dev-tools'),
       keywords: ['dev', 'tools', 'developer', 'utilities', 'simulation', 'geothermal']
     },
-    {
-      id: 'nav-photos',
-      title: 'Go to Photos',
-      description: 'Browse photo gallery',
-      category: 'Navigation',
-      icon: '📸',
-      action: () => navigateTo('/photos'),
-      keywords: ['photos', 'gallery', 'images', 'pictures']
-    },
 
     // Section Navigation
     {

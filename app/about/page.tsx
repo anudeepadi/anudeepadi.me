@@ -5,8 +5,6 @@ import type { ProfileType } from "@/types";
 import { PortableText } from "@portabletext/react";
 import { BiEnvelope, BiLinkExternal, BiSolidDownload } from "react-icons/bi";
 import { CustomPortableText } from "../components/shared/CustomPortableText";
-import Heroes from "../components/pages/Heroes";
-import Usage from "../components/pages/Usage";
 import { Slide } from "../animation/Slide";
 import { sanityFetch } from "@/lib/sanity.client";
 import RefLink from "../components/shared/RefLink";
@@ -101,10 +99,6 @@ export default async function About() {
                 </Slide>
               </aside>
             </section>
-            <Slide delay={0.14}>
-              <Usage />
-            </Slide>
-            <Heroes />
           </div>
         ))}
     </main>
